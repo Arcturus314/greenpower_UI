@@ -32,8 +32,8 @@ String batTwoVolt;
 String motorTemp;
 String motorCTemp;
 
-tempCalScale  = 1.0;
-tempCalOffset = 0,0;
+float tempCalScale  = 1.0;
+float tempCalOffset = 0.0;
 
 
 void setup()
@@ -70,15 +70,15 @@ void loop()
   selectButton = '0';
 
   //left button
-  if(digitalRead(2) == True)
+  if(digitalRead(2) == HIGH)
     leftButton = '1';
     
   //right button
-  if(digitalRead(3) == True)
+  if(digitalRead(3) == HIGH)
     rightButton = '1';
     
   //select button
-  if(digitalRead(4) == True)
+  if(digitalRead(4) == HIGH)
     selectButton = '1';
   
 
@@ -89,7 +89,7 @@ String buildList() {
   int index = 0;
 
 
-  list_length += (batOneVoltlength()+batTwoVolt.length()+motorTemp.length()+motorCTemp.length());
+  list_length += (batOneVolt.length()+batTwoVolt.length()+motorTemp.length()+motorCTemp.length());
 
   char list[list_length];
 
